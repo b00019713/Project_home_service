@@ -31,14 +31,14 @@ void process_image_callback(const sensor_msgs::Image img)
 	float lin_x = 0.0;
 	float ang_z = 0.0;
 
-    int white_pixel = 255;
+
 	bool ball = false;
 	int ball_pixel_num = 0;
 
 	//Go through the image data and check for the ball
 	// Loop through each pixel in the image and check if its equal to the first one
     for (int i = 0; i < img.height * img.step; i=i+3) {
-        if (img.data[i]>=250 && img.data[i+1]>=250 && img.data[i+2] >= 250) {
+        if (img.data[i]==255 && img.data[i+1]==255 && img.data[i+2] == 255) {
             ball = true;
 			ball_pixel_num=i;
             break;
