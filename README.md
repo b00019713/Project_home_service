@@ -1,2 +1,2 @@
 # Project_2
-Udacity gazebo trainin
+Udacity gazebo training
