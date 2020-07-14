@@ -1,0 +1,17 @@
+
+This is the final project for Udacity Robotics Software Engineering Nanodegree Program.
+The goal of the project is to simulate a home service robot in gazebo.
+The robot relies on ROS navigation stack and several additional packages for navigation.
+
+The official ROS packages used in the project are:
+1) gmapping: Provides laser-based SLAM and allows one to create 2D occupancy grid map from laser and pose data collected by a robot.
+2) turtlebot_gazebo: Provides a model of a turtlebot robot that can be deployed in gazebo
+3) turtlebot_rviz_launchers: Provides rviz configuration files very well suited for SLAM 
+4) turtlebot_teleop: Provides means to control a turtlebot via keyboard
+
+In addition to official packages several new ones were created:
+1) pick_objects: defines a node that publishes navigational goals for the robot
+2) add_markers: creates a node that is responcible for displaying a marker at pick up and drop off zones 
+
+All script files are located under /Project_home_services/scripts
+
