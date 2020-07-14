@@ -2,12 +2,14 @@ cmake_minimum_required(VERSION 3.0.2)
 project(pick_objects)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  actionlib
+  move_base_msgs
   roscpp
 )
 
@@ -68,7 +70,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   move_base_msgs
 # )
 
 ################################################
@@ -103,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pick_objects
-#  CATKIN_DEPENDS roscpp
+#  CATKIN_DEPENDS actionlib move_base_msgs roscpp
 #  DEPENDS system_lib
 )
 
@@ -114,7 +116,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+ include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -131,7 +133,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/pick_objects_node.cpp)
+add_executable(pick_objects src/pick_objects.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -144,9 +146,9 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(pick_objects
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##
